@@ -5,7 +5,8 @@
   },
   "extends": [
     "plugin:react/recommended",
-    "airbnb"
+    "airbnb",
+    "plugin:@typescript-eslint/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -47,7 +48,6 @@
       }
     ],
     "import/prefer-default-export": "off",
-    "@typescript-eslint/no-unused-vars": "off",
     "no-console": "off"
   }
 }

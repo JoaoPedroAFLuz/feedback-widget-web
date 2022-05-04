@@ -7,11 +7,13 @@ import { ScreenshotButton } from '../../ScreenshotButton';
 interface FeedbackContentStepProps {
   feedbackType: FeedbackType;
   onFeedbackRestartRequest: () => void;
+  onFeedbackSent: () => void;
 }
 
 export function FeedbackContentStep({
   feedbackType,
   onFeedbackRestartRequest,
+  onFeedbackSent,
 }: FeedbackContentStepProps) {
   const [screenshot, setScreenshot] = useState<string | null>(null);
   const [comment, setComment] = useState('');
@@ -25,6 +27,8 @@ export function FeedbackContentStep({
       screenshot,
       comment,
     });
+
+    onFeedbackSent();
   }
 
   return (
@@ -32,7 +36,7 @@ export function FeedbackContentStep({
       <header>
         <BackButton onClick={onFeedbackRestartRequest} />
 
-        <span className="text-xl leading-6 flex items-center gap-2">
+        <span className="text-xl leading-6 flex items-center justify-center gap-2">
           <img
             src={feedbackTypeInfo.image.source}
             alt={feedbackTypeInfo.image.alt}
